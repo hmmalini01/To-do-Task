@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Webpage</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+
+<body>
+<input type="text" id="inputbox">
+<button id="add">Add</button>
+
+<ul id="container">
+    <li>
+        Hello
+        <button onclick="deleteItem(event)" style="margin-right:10px;">Delete</button>
+    </li>
+</ul>
+
+<script>
+    //selecting all
+    const inputbox=document.getElementById("inputbox")
+    const btn=document.getElementById("add")
+    const container=document.getElementById("container")
+
+    btn.addEventListener("click", function(){
+        const li=document.createElement("li")
+        li.innerHTML=inputbox.value + "&nbsp; <button onclick="+"deleteItem(event)"+">Delete</button>"
+        container.append(li)
+    })
+
+    function deleteItem(event){
+        event.target.parentElement.remove()
+    }
+</script>
+</body>
